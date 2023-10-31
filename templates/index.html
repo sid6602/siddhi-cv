@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Segmentation Algorithms</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <p>Student Name: Siddhi Mankar</p>
+        <p>Seat Number: B238070</p>
+        <p>PRN Number: 202102080003</p>
+
+        <h2>Segmentation Algorithms</h2>
+        <form method="POST">
+            <label for="algorithm">Select Algorithm:</label>
+            <select name="algorithm" id="algorithm">
+                <option value="Thresholding">Thresholding</option>
+                <option value="Contour">Contour Detection</option>
+                <option value="Watershed">Watershed Algorithm</option>
+                <option value="Grabcut">Grabcut Algorithm</option>
+            </select>
+            <br>
+            <input type="submit" value="Apply Segmentation Algorithms">
+        </form>
+    </div>
+    <div class="result">
+        {% if transformed_image %}
+            <h2>Transformed Image</h2>
+            <img src="data:image/jpeg;base64, {{ transformed_image }}" alt="Transformed Image">
+        {% endif %}
+    </div>
+</body>
+</html>
